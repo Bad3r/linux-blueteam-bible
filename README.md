@@ -4,6 +4,8 @@ description: test 123
 
 # Initial page
 
+\*Everyone has a plan… Until they get hit in the mouth — Mike Tyson'
+
 {% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
 {% api-method-summary %}
 Get Cakes
