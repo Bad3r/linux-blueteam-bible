@@ -4,41 +4,73 @@ description: test 123
 
 # Initial page
 
+{% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
+{% api-method-summary %}
+Get Cakes
+{% endapi-method-summary %}
+
+{% api-method-description %}
+This endpoint allows you to get free cakes.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="string" %}
+ID of the cake to get, for free of course.
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+Authentication token to track down who is emptying our stocks.
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="recipe" type="string" %}
+The API will do its best to find a cake matching the provided recipe.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="gluten" type="boolean" %}
+Whether the cake should be gluten-free or not.
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+Cake successfully retrieved.
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "name": "Cake's name",
+    "recipe": "Cake's recipe name",
+    "cake": "Binary cake"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Could not find a cake matching this query.
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "message": "Ain't no cake like that."
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 
 
-'Everyone has a plan… Until they get hit in the mouth — Mike Tyson'
-
-### Practice and Preparation:
-
-* read the blueteam packet carefully
-* watch the presentations:
-
-  * [Week 3 - Advanced Networking](https://tinyurl.com/y45axubl)
-  * [Week 4 - Advanced Linux](https://tinyurl.com/y24muwda)
-  * [Week 5 - Advanced Windows](https://tinyurl.com/y5h8mtgg)
-  * [Week 8 - Blue Linux](https://tinyurl.com/y4u9w53u)
-  * [Week 9 - Blue Windows](https://tinyurl.com/y54akrjs)
-  * [Week 10 - Red Linux](https://tinyurl.com/y2vrkfzx)
-  * [Week 11 - Red Windows](https://tinyurl.com/y2etqszs)
-
-* What blue teams do wrong:
-
-  * get frustrated
-  * think the injects need to be 100%
-  * don't ask enough questions
-  * leave default credentials
-  * patch too much
-
-
-
-### OS's And Services:
-
-| Hostname | Services | OS | IP |
-| :--- | :--- | :--- | :--- |
-| Troy | AD/DNS | Windows Server | 10.2.X.1 |
-| Gebriella | Mail | Fedora | 10.2.X.2 |
-| Chad | MSSQL | Windows Server | 10.2.X.2 |
-| \#RZeke | ICMP | Win 10 | DHCP |
-| Marhta | ICMP | Solaris 10 | DHCP |
-| Sharpay | HTTP | Ubuntu |  |
 
